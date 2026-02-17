@@ -201,11 +201,140 @@ document.addEventListener('DOMContentLoaded', () => {
                 utils.showNotification('Giỏ hàng trống!', 'error');
                 return;
             }
-            // TODO: Navigate to checkout page
-            utils.showNotification('Chức năng thanh toán đang được phát triển!');
+            cart.hideModal();
+            showCheckoutModal();
+        });
+    }
+
+    // Close checkout modal
+    const closeCheckout = document.getElementById('closeCheckout');
+    if (closeCheckout) {
+        closeCheckout.addEventListener('click', hideCheckoutModal);
+    }
+
+    // Back to cart button
+    const backToCart = document.getElementById('backToCart');
+    if (backToCart) {
+        backToCart.addEventListener('click', () => {
+            hideCheckoutModal();
+            cart.showModal();
+        });
+    }
+
+    // Checkout form submission
+    const checkoutForm = document.getElementById('checkoutForm');
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', handleCheckoutSubmit);
+    }
+
+    // Close success modal
+    const closeSuccess = document.getElementById('closeSuccess');
+    if (closeSuccess) {
+        closeSuccess.addEventListener('click', hideSuccessModal);
+    }
+
+    // Continue shopping button
+    const continueShoppingBtn = document.getElementById('continueShoppingBtn');
+    if (continueShoppingBtn) {
+        continueShoppingBtn.addEventListener('click', () => {
+            hideSuccessModal();
+            cart.clear();
         });
     }
 
     // Initialize cart UI
     cart.updateCartUI();
 });
+
+// Show checkout modal
+function showCheckoutModal() {
+    const modal = document.getElementById('checkoutModal');
+    if (!modal) return;
+
+    // Render checkout items
+    const checkoutItems = document.getElementById('checkoutItems');
+    if (checkoutItems) {
+        checkoutItems.innerHTML = cart.items.map(item => `
+            <div class="checkout-item">
+                <span class="item-name">${utils.sanitizeHTML(item.name)} x ${item.quantity}</span>
+                <span class="item-price">${utils.formatCurrency(item.price * item.quantity)}</span>
+            </div>
+        `).join('');
+    }
+
+    // Update totals
+    const subtotal = cart.getTotalAmount();
+    document.getElementById('checkoutSubtotal').textContent = utils.formatCurrency(subtotal);
+    document.getElementById('checkoutTotal').textContent = utils.formatCurrency(subtotal);
+
+    modal.classList.add('active');
+}
+
+// Hide checkout modal
+function hideCheckoutModal() {
+    const modal = document.getElementById('checkoutModal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
+}
+
+// Handle checkout form submission
+function handleCheckoutSubmit(e) {
+    e.preventDefault();
+
+    // Get form data
+    const formData = {
+        customerName: document.getElementById('customerName').value,
+        customerPhone: document.getElementById('customerPhone').value,
+        customerEmail: document.getElementById('customerEmail').value,
+        shippingAddress: document.getElementById('shippingAddress').value,
+        shippingWard: document.getElementById('shippingWard').value,
+        shippingDistrict: document.getElementById('shippingDistrict').value,
+        shippingCity: document.getElementById('shippingCity').value,
+        orderNote: document.getElementById('orderNote').value,
+        items: cart.items,
+        totalAmount: cart.getTotalAmount(),
+        orderDate: new Date().toISOString()
+    };
+
+    // Generate order code
+    const orderCode = 'DH' + Date.now().toString().slice(-8);
+
+    // Save order to localStorage (in real app, send to server)
+    try {
+        const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+        orders.push({
+            orderCode,
+            ...formData
+        });
+        localStorage.setItem('orders', JSON.stringify(orders));
+    } catch (error) {
+        console.error('Error saving order:', error);
+    }
+
+    // Hide checkout modal
+    hideCheckoutModal();
+
+    // Show success modal
+    showSuccessModal(orderCode, formData);
+}
+
+// Show success modal
+function showSuccessModal(orderCode, orderData) {
+    const modal = document.getElementById('successModal');
+    if (!modal) return;
+
+    document.getElementById('orderCode').textContent = orderCode;
+    document.getElementById('orderTotal').textContent = utils.formatCurrency(orderData.totalAmount);
+    document.getElementById('orderTransferContent').textContent = `${orderData.customerName} ${orderData.customerPhone}`;
+
+    modal.classList.add('active');
+}
+
+// Hide success modal
+function hideSuccessModal() {
+    const modal = document.getElementById('successModal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
+}

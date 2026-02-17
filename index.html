@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Cashew Nuts - Hạt Điều Cao Cấp</title>
+    <title>Premium Cashew Nuts - Hạt Điều Cao Cấp Bình Phước</title>
+    <meta name="description" content="Chuyên cung cấp hạt điều cao cấp từ Bình Phước - Hạt rang, hạt muối, ngũ cốc, thanh dinh dưỡng. Giao hàng toàn quốc. Hotline: 0343-365-160">
+    <meta name="keywords" content="hạt điều, hạt điều bình phước, hạt điều cao cấp, hạt điều rang muối, ngũ cốc hạt điều, thanh dinh dưỡng">
+    <meta name="author" content="Premium Cashew Nuts">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cashewnuts.vn/">
+    <meta property="og:title" content="Premium Cashew Nuts - Hạt Điều Cao Cấp Bình Phước">
+    <meta property="og:description" content="Chuyên cung cấp hạt điều cao cấp từ Bình Phước - Hạt rang, hạt muối, ngũ cốc, thanh dinh dưỡng. Giao hàng toàn quốc.">
+    <meta property="og:image" content="https://cashewnuts.vn/cashewnutsvn.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cashewnuts.vn/">
+    <meta property="twitter:title" content="Premium Cashew Nuts - Hạt Điều Cao Cấp Bình Phước">
+    <meta property="twitter:description" content="Chuyên cung cấp hạt điều cao cấp từ Bình Phước - Hạt rang, hạt muối, ngũ cốc, thanh dinh dưỡng.">
+    <meta property="twitter:image" content="https://cashewnuts.vn/cashewnutsvn.png">
+    
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -16,9 +43,9 @@
                     <h1>CASHEW NUTS</h1>
                 </div>
                 <nav class="nav">
-                    <a href="#" class="nav-link active">Trang chủ</a>
-                    <a href="#" class="nav-link">Danh mục</a>
-                    <a href="#" class="nav-link">Giới thiệu</a>
+                    <a href="index.html" class="nav-link active">Trang chủ</a>
+                    <a href="about.html" class="nav-link">Về chúng tôi</a>
+                    <a href="policy.html" class="nav-link">Chính sách</a>
                     <a href="#" class="nav-link">Liên hệ</a>
                 </nav>
                 <div class="header-actions">
@@ -38,7 +65,7 @@
     <section class="hero-section">
         <div class="hero-content">
             <h1 class="hero-title">Premium Cashew Nuts</h1>
-            <p class="hero-subtitle">Hạt điều cao cấp - Thơm ngon, bổ dưỡng từ Đồng Nai</p>
+            <p class="hero-subtitle">Hạt điều cao cấp - Thơm ngon, bổ dưỡng từ Bình Phước</p>
             <button class="hero-btn" onclick="document.getElementById('productsGrid').scrollIntoView({behavior: 'smooth'})">
                 Khám phá sản phẩm
             </button>
@@ -169,19 +196,149 @@
         </div>
     </div>
 
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Thanh toán đơn hàng</h2>
+                <button class="close-btn" id="closeCheckout">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="checkoutForm">
+                    <div class="checkout-section">
+                        <h3>Thông tin khách hàng</h3>
+                        <div class="form-group">
+                            <label for="customerName">Họ và tên *</label>
+                            <input type="text" id="customerName" required placeholder="Nhập họ và tên">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPhone">Số điện thoại *</label>
+                            <input type="tel" id="customerPhone" required placeholder="Nhập số điện thoại">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerEmail">Email</label>
+                            <input type="email" id="customerEmail" placeholder="Nhập email (không bắt buộc)">
+                        </div>
+                    </div>
+
+                    <div class="checkout-section">
+                        <h3>Địa chỉ giao hàng</h3>
+                        <div class="form-group">
+                            <label for="shippingAddress">Địa chỉ cụ thể *</label>
+                            <input type="text" id="shippingAddress" required placeholder="Số nhà, tên đường">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="shippingWard">Phường/Xã *</label>
+                                <input type="text" id="shippingWard" required placeholder="Phường/Xã">
+                            </div>
+                            <div class="form-group">
+                                <label for="shippingDistrict">Quận/Huyện *</label>
+                                <input type="text" id="shippingDistrict" required placeholder="Quận/Huyện">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shippingCity">Tỉnh/Thành phố *</label>
+                            <input type="text" id="shippingCity" required placeholder="Tỉnh/Thành phố">
+                        </div>
+                        <div class="form-group">
+                            <label for="orderNote">Ghi chú đơn hàng</label>
+                            <textarea id="orderNote" rows="3" placeholder="Ghi chú thêm về đơn hàng (không bắt buộc)"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="checkout-section">
+                        <h3>Thông tin đơn hàng</h3>
+                        <div id="checkoutItems" class="checkout-items">
+                            <!-- Cart items will be displayed here -->
+                        </div>
+                        <div class="checkout-total">
+                            <div class="total-row">
+                                <span>Tạm tính:</span>
+                                <span id="checkoutSubtotal">0đ</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Phí vận chuyển:</span>
+                                <span id="checkoutShipping">Liên hệ</span>
+                            </div>
+                            <div class="total-row total-final">
+                                <span>Tổng cộng:</span>
+                                <span id="checkoutTotal">0đ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-section">
+                        <h3>Phương thức thanh toán</h3>
+                        <div class="payment-method">
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="bank" checked>
+                                <span>Chuyển khoản ngân hàng</span>
+                            </label>
+                            <div class="bank-info">
+                                <p><strong>Ngân hàng:</strong> Vietcombank</p>
+                                <p><strong>Số tài khoản:</strong> 1234567890</p>
+                                <p><strong>Chủ tài khoản:</strong> NGUYEN VAN A</p>
+                                <p><strong>Nội dung:</strong> <span id="transferContent">Họ tên + Số điện thoại</span></p>
+                                <p class="note">* Vui lòng chuyển khoản và gửi ảnh xác nhận qua Zalo/SMS</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-actions">
+                        <button type="button" class="btn-secondary" id="backToCart">Quay lại giỏ hàng</button>
+                        <button type="submit" class="btn-primary">Xác nhận đặt hàng</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Đặt hàng thành công!</h2>
+                <button class="close-btn" id="closeSuccess">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-message">
+                    <div class="success-icon">✓</div>
+                    <h3>Cảm ơn bạn đã đặt hàng!</h3>
+                    <p>Đơn hàng của bạn đã được ghi nhận.</p>
+                    <div class="order-info">
+                        <p><strong>Mã đơn hàng:</strong> <span id="orderCode"></span></p>
+                        <p><strong>Tổng tiền:</strong> <span id="orderTotal"></span></p>
+                    </div>
+                    <div class="bank-transfer-info">
+                        <h4>Thông tin chuyển khoản:</h4>
+                        <p><strong>Ngân hàng:</strong> Vietcombank</p>
+                        <p><strong>Số TK:</strong> 1234567890</p>
+                        <p><strong>Chủ TK:</strong> NGUYEN VAN A</p>
+                        <p><strong>Nội dung:</strong> <span id="orderTransferContent"></span></p>
+                    </div>
+                    <p class="note">Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="continueShoppingBtn">Tiếp tục mua hàng</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Về chúng tôi</h3>
-                    <p>Chuyên cung cấp hạt điều cao cấp từ vùng đất Đồng Nai - Thơm ngon, bổ dưỡng.</p>
+                    <p>Chuyên cung cấp hạt điều cao cấp từ vùng đất Bình Phước - Thơm ngon, bổ dưỡng.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Liên hệ</h3>
-                    <p>📞 Hotline: 1900-xxxx</p>
-                    <p>📧 Email: info@cashewnuts.vn</p>
-                    <p>📍 Địa chỉ: Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Đồng Nai</p>
+                    <p>📞 Hotline: 0343-365-160</p>
+                    <p>📧 Email: cashewnutsvn1@gmail.com</p>
+                    <p>📍 Địa chỉ: Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Bình Phước</p>
                 </div>
                 <div class="footer-section">
                     <h3>Chính sách</h3>
@@ -200,5 +357,22 @@
     <script src="js/utils.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/analytics.js"></script>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact">
+        <a href="https://zalo.me/0343365160" target="_blank" class="contact-btn zalo-btn" title="Chat Zalo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.5 14.5C16.5 14.78 16.28 15 16 15H8C7.72 15 7.5 14.78 7.5 14.5V9.5C7.5 9.22 7.72 9 8 9H16C16.28 9 16.5 9.22 16.5 9.5V14.5Z" fill="white"/>
+            </svg>
+            <span>Zalo</span>
+        </a>
+        <a href="tel:0343365160" class="contact-btn phone-btn" title="Gọi điện">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="white"/>
+            </svg>
+            <span>Gọi ngay</span>
+        </a>
+    </div>
 </body>
 </html>

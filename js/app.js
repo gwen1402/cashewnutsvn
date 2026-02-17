@@ -9,7 +9,7 @@ const sampleProducts = [
         category: 'salted',
         image: '',
         description: 'Hạt điều rang muối thơm bùi, giòn tan, vị mặn vừa phải',
-        stock: 50,
+        stock: 100,
         nutritionInfo: {
             calories: 553,
             protein: 18,
@@ -25,7 +25,7 @@ const sampleProducts = [
         category: 'roasted',
         image: '',
         description: 'Hạt điều rang bơ thơm ngon, béo ngậy tự nhiên',
-        stock: 0,
+        stock: 80,
         nutritionInfo: {
             calories: 574,
             protein: 18,
@@ -41,7 +41,7 @@ const sampleProducts = [
         category: 'honey',
         image: '',
         description: 'Hạt điều phủ mật ong nguyên chất, ngọt thanh tự nhiên',
-        stock: 0,
+        stock: 60,
         nutritionInfo: {
             calories: 590,
             protein: 17,
@@ -57,7 +57,7 @@ const sampleProducts = [
         category: 'raw',
         image: '',
         description: 'Hạt điều sống nguyên vỏ, tươi mới từ vườn',
-        stock: 0,
+        stock: 120,
         nutritionInfo: {
             calories: 553,
             protein: 18,
@@ -73,7 +73,7 @@ const sampleProducts = [
         category: 'roasted',
         image: '',
         description: 'Hạt điều rang tỏi thơm nồng, hương vị đặc biệt',
-        stock: 0,
+        stock: 20,
         nutritionInfo: {
             calories: 560,
             protein: 18,
@@ -105,7 +105,7 @@ const sampleProducts = [
         category: 'salted',
         image: '',
         description: 'Hạt điều muối ớt cay nồng, kích thích vị giác',
-        stock: 0,
+        stock: 35,
         nutritionInfo: {
             calories: 558,
             protein: 18,
@@ -121,7 +121,7 @@ const sampleProducts = [
         category: 'roasted',
         image: '',
         description: 'Hạt điều sấy giòn tự nhiên, không dầu mỡ',
-        stock: 0,
+        stock: 45,
         nutritionInfo: {
             calories: 553,
             protein: 18,
@@ -137,7 +137,7 @@ const sampleProducts = [
         category: 'salted',
         image: '',
         description: 'Hạt điều vỡ rang muối, giá tốt, chất lượng cao',
-        stock: 0,
+        stock: 60,
         nutritionInfo: {
             calories: 553,
             protein: 18,
@@ -169,7 +169,7 @@ const sampleProducts = [
         category: 'granola',
         image: '',
         description: 'Ngũ cốc hạt điều kết hợp yến mạch, nho khô, giàu chất xơ',
-        stock: 0,
+        stock: 30,
         nutritionInfo: {
             calories: 450,
             protein: 12,
@@ -185,7 +185,7 @@ const sampleProducts = [
         category: 'granola',
         image: '',
         description: 'Ngũ cốc cao cấp với hạt điều, hạnh nhân và cranberry',
-        stock: 0,
+        stock: 25,
         nutritionInfo: {
             calories: 480,
             protein: 14,
@@ -217,7 +217,7 @@ const sampleProducts = [
         category: 'bar',
         image: '',
         description: 'Thanh dinh dưỡng hạt điều giàu protein, năng lượng tức thì',
-        stock: 0,
+        stock: 100,
         nutritionInfo: {
             calories: 220,
             protein: 12,
@@ -233,7 +233,7 @@ const sampleProducts = [
         category: 'bar',
         image: '',
         description: 'Thanh dinh dưỡng hạt điều phủ chocolate đen 70%',
-        stock: 0,
+        stock: 80,
         nutritionInfo: {
             calories: 240,
             protein: 10,
@@ -249,7 +249,7 @@ const sampleProducts = [
         category: 'bar',
         image: '',
         description: 'Thanh dinh dưỡng hạt điều với cranberry sấy khô',
-        stock: 0,
+        stock: 90,
         nutritionInfo: {
             calories: 210,
             protein: 9,
