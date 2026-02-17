@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Cashew Nuts - Hạt Điều Cao Cấp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>CASHEW NUTS</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active">Trang chủ</a>
+                    <a href="#" class="nav-link">Danh mục</a>
+                    <a href="#" class="nav-link">Giới thiệu</a>
+                    <a href="#" class="nav-link">Liên hệ</a>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                        <button class="search-btn">🔍</button>
+                    </div>
+                    <button class="cart-btn" id="cartBtn">
+                        🛒 <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Premium Cashew Nuts</h1>
+            <p class="hero-subtitle">Hạt điều cao cấp - Thơm ngon, bổ dưỡng từ Đồng Nai</p>
+            <button class="hero-btn" onclick="document.getElementById('productsGrid').scrollIntoView({behavior: 'smooth'})">
+                Khám phá sản phẩm
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <!-- Sidebar Filter -->
+                <aside class="sidebar">
+                    <div class="filter-section">
+                        <h3>Danh mục</h3>
+                        <div class="filter-group">
+                            <label class="filter-item">
+                                <input type="checkbox" name="category" value="all" checked>
+                                <span>Tất cả</span>
+                            </label>
+                            <label class="filter-item">
+                                <input type="checkbox" name="category" value="roasted">
+                                <span>Hạt rang</span>
+                            </label>
+                            <label class="filter-item">
+                                <input type="checkbox" name="category" value="salted">
+                                <span>Hạt muối</span>
+                            </label>
+                            <label class="filter-item">
+                                <input type="checkbox" name="category" value="honey">
+                                <span>Hạt mật ong</span>
+                            </label>
+                            <label class="filter-item">
+                                <input type="checkbox" name="category" value="raw">
+                                <span>Hạt sống</span>
+                            </label>
+                            <label class="filter-item">
+                                <input type="checkbox" name="category" value="granola">
+                                <span>Ngũ cốc</span>
+                            </label>
+                            <label class="filter-item">
+                                <input type="checkbox" name="category" value="bar">
+                                <span>Thanh dinh dưỡng</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Khoảng giá</h3>
+                        <div class="price-filter">
+                            <input type="number" id="minPrice" placeholder="Từ" min="0">
+                            <span>-</span>
+                            <input type="number" id="maxPrice" placeholder="Đến" min="0">
+                        </div>
+                        <button class="btn-filter" id="applyFilter">Áp dụng</button>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Sắp xếp</h3>
+                        <select id="sortBy" class="sort-select">
+                            <option value="default">Mặc định</option>
+                            <option value="price-asc">Giá tăng dần</option>
+                            <option value="price-desc">Giá giảm dần</option>
+                            <option value="name-asc">Tên A-Z</option>
+                            <option value="name-desc">Tên Z-A</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-clear" id="clearFilter">Xóa bộ lọc</button>
+                </aside>
+
+                <!-- Product Grid -->
+                <section class="products-section">
+                    <div class="section-header">
+                        <h2>Sản phẩm nổi bật</h2>
+                        <p class="product-count">Hiển thị <span id="productCount">0</span> sản phẩm</p>
+                    </div>
+
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products will be loaded here dynamically -->
+                        <div class="loading">Đang tải sản phẩm...</div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination" id="pagination">
+                        <!-- Pagination will be generated dynamically -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Shopping Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Giỏ hàng của bạn</h2>
+                <button class="close-btn" id="closeCart">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems">
+                    <!-- Cart items will be loaded here -->
+                </div>
+                <div class="cart-empty" id="cartEmpty">
+                    <p>Giỏ hàng trống</p>
+                    <p class="text-muted">Hãy thêm sản phẩm vào giỏ hàng!</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="cart-total">
+                    <span>Tổng cộng:</span>
+                    <span class="total-amount" id="totalAmount">0đ</span>
+                </div>
+                <button class="btn-checkout" id="checkoutBtn">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="productModalTitle">Chi tiết sản phẩm</h2>
+                <button class="close-btn" id="closeProduct">&times;</button>
+            </div>
+            <div class="modal-body" id="productModalBody">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Về chúng tôi</h3>
+                    <p>Chuyên cung cấp hạt điều cao cấp từ vùng đất Đồng Nai - Thơm ngon, bổ dưỡng.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên hệ</h3>
+                    <p>📞 Hotline: 1900-xxxx</p>
+                    <p>📧 Email: info@cashewnuts.vn</p>
+                    <p>📍 Địa chỉ: Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Đồng Nai</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Chính sách</h3>
+                    <p><a href="#">Chính sách đổi trả</a></p>
+                    <p><a href="#">Chính sách bảo mật</a></p>
+                    <p><a href="#">Điều khoản sử dụng</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Premium Cashew Nuts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
