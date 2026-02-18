@@ -1313,6 +1313,10 @@ body {
     height: 24px;
 }
 
+.contact-btn i {
+    font-size: 20px;
+}
+
 .zalo-btn {
     background: linear-gradient(135deg, #0068FF 0%, #0084FF 100%);
 }

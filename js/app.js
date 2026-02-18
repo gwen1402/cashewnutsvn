@@ -508,7 +508,7 @@ function renderProducts() {
                 <button class="btn-add-cart" 
                         onclick="event.stopPropagation(); addToCart('${product.id}')"
                         ${product.stock === 0 ? 'disabled' : ''}>
-                    ${product.stock > 0 ? '🛒 Thêm vào giỏ' : 'Hết hàng'}
+                    <i class="fas fa-cart-plus"></i> ${product.stock > 0 ? 'Thêm vào giỏ' : 'Hết hàng'}
                 </button>
             </div>
         </div>
@@ -638,7 +638,7 @@ function showProductDetail(productId) {
                     <button class="btn-add-cart" 
                             onclick="addToCart('${product.id}'); hideProductModal();"
                             ${product.stock === 0 ? 'disabled' : ''}>
-                        ${product.stock > 0 ? '🛒 Thêm vào giỏ hàng' : 'Hết hàng'}
+                        <i class="fas fa-cart-plus"></i> ${product.stock > 0 ? 'Thêm vào giỏ hàng' : 'Hết hàng'}
                     </button>
                 </div>
             </div>
