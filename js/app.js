@@ -339,6 +339,12 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeApp() {
     renderProducts();
     updateProductCount();
+    
+    // Listen for language changes
+    window.addEventListener('localeChanged', () => {
+        renderProducts();
+        updateProductCount();
+    });
 }
 
 function setupEventListeners() {
@@ -481,10 +487,13 @@ function renderProducts() {
     if (!productsGrid) return;
 
     if (filteredProducts.length === 0) {
+        const noProductsText = typeof i18n !== 'undefined' ? i18n.t('products.noProducts') : 'Không tìm thấy sản phẩm';
+        const noProductsHint = typeof i18n !== 'undefined' ? i18n.t('products.noProductsHint') : 'Vui lòng thử tìm kiếm với từ khóa khác hoặc điều chỉnh bộ lọc';
+        
         productsGrid.innerHTML = `
             <div class="loading">
-                <p>Không tìm thấy sản phẩm</p>
-                <p class="text-muted">Vui lòng thử tìm kiếm với từ khóa khác hoặc điều chỉnh bộ lọc</p>
+                <p>${noProductsText}</p>
+                <p class="text-muted">${noProductsHint}</p>
             </div>
         `;
         return;
@@ -495,24 +504,34 @@ function renderProducts() {
     const endIndex = startIndex + productsPerPage;
     const productsToShow = filteredProducts.slice(startIndex, endIndex);
 
-    productsGrid.innerHTML = productsToShow.map(product => `
-        <div class="product-card" onclick="showProductDetail('${product.id}')">
-            <img src="${product.image}" alt="${utils.sanitizeHTML(product.name)}" class="product-image">
-            <div class="product-info">
-                <div class="product-category">${utils.getCategoryName(product.category)}</div>
-                <h3 class="product-name">${utils.sanitizeHTML(product.name)}</h3>
-                <div class="product-price">${utils.formatCurrency(product.price)}</div>
-                <span class="product-stock ${product.stock > 0 ? 'in-stock' : 'out-of-stock'}">
-                    ${product.stock > 0 ? 'Còn hàng' : 'Hết hàng'}
-                </span>
-                <button class="btn-add-cart" 
-                        onclick="event.stopPropagation(); addToCart('${product.id}')"
-                        ${product.stock === 0 ? 'disabled' : ''}>
-                    <i class="fas fa-cart-plus"></i> ${product.stock > 0 ? 'Thêm vào giỏ' : 'Hết hàng'}
-                </button>
+    const inStockText = typeof i18n !== 'undefined' ? i18n.t('products.inStock') : 'Còn hàng';
+    const outOfStockText = typeof i18n !== 'undefined' ? i18n.t('products.outOfStock') : 'Hết hàng';
+    const addToCartText = typeof i18n !== 'undefined' ? i18n.t('products.addToCart') : 'Thêm vào giỏ';
+
+    productsGrid.innerHTML = productsToShow.map(product => {
+        // Get translated product data
+        const productName = typeof i18n !== 'undefined' ? i18n.getProductTranslation(product.id, 'name') : product.name;
+        const productCategory = utils.getCategoryName(product.category);
+        
+        return `
+            <div class="product-card" onclick="showProductDetail('${product.id}')">
+                <img src="${product.image}" alt="${utils.sanitizeHTML(productName)}" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">${productCategory}</div>
+                    <h3 class="product-name">${utils.sanitizeHTML(productName)}</h3>
+                    <div class="product-price">${utils.formatCurrency(product.price)}</div>
+                    <span class="product-stock ${product.stock > 0 ? 'in-stock' : 'out-of-stock'}">
+                        ${product.stock > 0 ? inStockText : outOfStockText}
+                    </span>
+                    <button class="btn-add-cart" 
+                            onclick="event.stopPropagation(); addToCart('${product.id}')"
+                            ${product.stock === 0 ? 'disabled' : ''}>
+                        <i class="fas fa-cart-plus"></i> ${product.stock > 0 ? addToCartText : outOfStockText}
+                    </button>
+                </div>
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 
     renderPagination();
 }
@@ -529,12 +548,15 @@ function renderPagination() {
         return;
     }
 
+    const previousText = typeof i18n !== 'undefined' ? i18n.t('products.previous') : 'Trước';
+    const nextText = typeof i18n !== 'undefined' ? i18n.t('products.next') : 'Sau';
+
     let paginationHTML = '';
     
     // Previous button
     paginationHTML += `
         <button class="page-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
-            ← Trước
+            ← ${previousText}
         </button>
     `;
     
@@ -554,7 +576,7 @@ function renderPagination() {
     // Next button
     paginationHTML += `
         <button class="page-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
-            Sau →
+            ${nextText} →
         </button>
     `;
     
@@ -596,21 +618,43 @@ function showProductDetail(productId) {
     const modalTitle = document.getElementById('productModalTitle');
     const modalBody = document.getElementById('productModalBody');
 
+    // Get translated product data
+    const productName = typeof i18n !== 'undefined' ? i18n.getProductTranslation(productId, 'name') : product.name;
+    const productDescription = typeof i18n !== 'undefined' ? i18n.getProductTranslation(productId, 'description') : product.description;
+    const productCategory = utils.getCategoryName(product.category);
+    const productIngredients = typeof i18n !== 'undefined' ? i18n.getProductTranslation(productId, 'ingredients') : product.ingredients;
+
+    // Get UI translations
+    const ingredientsLabel = typeof i18n !== 'undefined' ? i18n.t('productDetail.ingredients') : 'Thành phần:';
+    const nutritionLabel = typeof i18n !== 'undefined' ? i18n.t('productDetail.nutrition') : 'Thông tin dinh dưỡng (100g):';
+    const caloriesLabel = typeof i18n !== 'undefined' ? i18n.t('productDetail.calories') : 'Calories';
+    const proteinLabel = typeof i18n !== 'undefined' ? i18n.t('productDetail.protein') : 'Protein';
+    const carbsLabel = typeof i18n !== 'undefined' ? i18n.t('productDetail.carbs') : 'Carbs';
+    const fatLabel = typeof i18n !== 'undefined' ? i18n.t('productDetail.fat') : 'Fat';
+    const stockAvailableLabel = typeof i18n !== 'undefined' ? i18n.t('productDetail.stockAvailable') : 'Còn';
+    const stockUnitLabel = typeof i18n !== 'undefined' ? i18n.t('productDetail.stockUnit') : 'sản phẩm';
+    const addToCartLabel = typeof i18n !== 'undefined' ? i18n.t('productDetail.addToCartButton') : 'Thêm vào giỏ hàng';
+    const outOfStockLabel = typeof i18n !== 'undefined' ? i18n.t('products.outOfStock') : 'Hết hàng';
+
     if (modalTitle) {
-        modalTitle.textContent = product.name;
+        modalTitle.textContent = productName;
     }
 
     if (modalBody) {
+        const ingredientsList = Array.isArray(productIngredients) 
+            ? productIngredients.map(ing => `<li>${utils.sanitizeHTML(ing)}</li>`).join('')
+            : product.ingredients.map(ing => `<li>${utils.sanitizeHTML(ing)}</li>`).join('');
+
         modalBody.innerHTML = `
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                 <div>
-                    <img src="${product.image}" alt="${utils.sanitizeHTML(product.name)}" 
+                    <img src="${product.image}" alt="${utils.sanitizeHTML(productName)}" 
                          style="width: 100%; border-radius: 8px;">
                 </div>
                 <div>
                     <div style="margin-bottom: 1rem;">
                         <span style="color: var(--secondary-green); font-weight: 500; text-transform: uppercase;">
-                            ${utils.getCategoryName(product.category)}
+                            ${productCategory}
                         </span>
                     </div>
                     <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-brown); margin-bottom: 1rem;">
@@ -618,27 +662,27 @@ function showProductDetail(productId) {
                     </div>
                     <div style="margin-bottom: 1rem;">
                         <span class="product-stock ${product.stock > 0 ? 'in-stock' : 'out-of-stock'}">
-                            ${product.stock > 0 ? `Còn ${product.stock} sản phẩm` : 'Hết hàng'}
+                            ${product.stock > 0 ? `${stockAvailableLabel} ${product.stock} ${stockUnitLabel}` : outOfStockLabel}
                         </span>
                     </div>
                     <p style="margin-bottom: 1.5rem; line-height: 1.8;">
-                        ${utils.sanitizeHTML(product.description)}
+                        ${utils.sanitizeHTML(productDescription)}
                     </p>
-                    <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Thành phần:</h4>
+                    <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">${ingredientsLabel}</h4>
                     <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
-                        ${product.ingredients.map(ing => `<li>${utils.sanitizeHTML(ing)}</li>`).join('')}
+                        ${ingredientsList}
                     </ul>
-                    <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Thông tin dinh dưỡng (100g):</h4>
+                    <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">${nutritionLabel}</h4>
                     <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
-                        <li>Calories: ${product.nutritionInfo.calories} kcal</li>
-                        <li>Protein: ${product.nutritionInfo.protein}g</li>
-                        <li>Carbs: ${product.nutritionInfo.carbs}g</li>
-                        <li>Fat: ${product.nutritionInfo.fat}g</li>
+                        <li>${caloriesLabel}: ${product.nutritionInfo.calories} kcal</li>
+                        <li>${proteinLabel}: ${product.nutritionInfo.protein}g</li>
+                        <li>${carbsLabel}: ${product.nutritionInfo.carbs}g</li>
+                        <li>${fatLabel}: ${product.nutritionInfo.fat}g</li>
                     </ul>
                     <button class="btn-add-cart" 
                             onclick="addToCart('${product.id}'); hideProductModal();"
                             ${product.stock === 0 ? 'disabled' : ''}>
-                        <i class="fas fa-cart-plus"></i> ${product.stock > 0 ? 'Thêm vào giỏ hàng' : 'Hết hàng'}
+                        <i class="fas fa-cart-plus"></i> ${product.stock > 0 ? addToCartLabel : outOfStockLabel}
                     </button>
                 </div>
             </div>

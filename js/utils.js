@@ -1,7 +1,13 @@
 // Utility Functions
 
-// Format currency to Vietnamese Dong
+// Format currency to Vietnamese Dong or USD based on locale
 function formatCurrency(amount) {
+    // Use i18n if available
+    if (typeof i18n !== 'undefined') {
+        return i18n.formatCurrency(amount);
+    }
+    
+    // Fallback to Vietnamese
     return new Intl.NumberFormat('vi-VN', {
         style: 'currency',
         currency: 'VND'
@@ -100,6 +106,13 @@ function sanitizeHTML(str) {
 
 // Get category display name
 function getCategoryName(category) {
+    // Use i18n if available
+    if (typeof i18n !== 'undefined') {
+        const key = `sidebar.categories.${category}`;
+        return i18n.t(key);
+    }
+    
+    // Fallback to Vietnamese
     const categories = {
         'roasted': 'Hạt rang',
         'salted': 'Hạt muối',

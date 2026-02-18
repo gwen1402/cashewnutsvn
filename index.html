@@ -46,14 +46,18 @@
                     <h1>CASHEW NUTS</h1>
                 </div>
                 <nav class="nav">
-                    <a href="index.html" class="nav-link active">Trang chủ</a>
-                    <a href="about.html" class="nav-link">Về chúng tôi</a>
-                    <a href="policy.html" class="nav-link">Chính sách</a>
-                    <a href="#" class="nav-link">Liên hệ</a>
+                    <a href="index.html" class="nav-link active" data-i18n="nav.home">Trang chủ</a>
+                    <a href="about.html" class="nav-link" data-i18n="nav.about">Về chúng tôi</a>
+                    <a href="policy.html" class="nav-link" data-i18n="nav.policy">Chính sách</a>
+                    <a href="#" class="nav-link" data-i18n="nav.contact">Liên hệ</a>
                 </nav>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="vi" onclick="i18n.setLocale('vi')">VI</button>
+                    <button class="lang-btn" data-lang="en" onclick="i18n.setLocale('en')">EN</button>
+                </div>
                 <div class="header-actions">
                     <div class="search-box">
-                        <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                        <input type="text" id="searchInput" data-i18n="header.searchPlaceholder" placeholder="Tìm kiếm sản phẩm...">
                         <button class="search-btn"><i class="fas fa-search"></i></button>
                     </div>
                     <button class="cart-btn" id="cartBtn">
@@ -67,9 +71,9 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
-            <h1 class="hero-title">Premium Cashew Nuts</h1>
-            <p class="hero-subtitle">Hạt điều cao cấp - Thơm ngon, bổ dưỡng từ Bình Phước</p>
-            <button class="hero-btn" onclick="document.getElementById('productsGrid').scrollIntoView({behavior: 'smooth'})">
+            <h1 class="hero-title" data-i18n="hero.title">Premium Cashew Nuts</h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Hạt điều cao cấp - Thơm ngon, bổ dưỡng từ Bình Phước</p>
+            <button class="hero-btn" data-i18n="hero.exploreButton" onclick="document.getElementById('productsGrid').scrollIntoView({behavior: 'smooth'})">
                 Khám phá sản phẩm
             </button>
         </div>
@@ -82,73 +86,73 @@
                 <!-- Sidebar Filter -->
                 <aside class="sidebar">
                     <div class="filter-section">
-                        <h3>Danh mục</h3>
+                        <h3 data-i18n="sidebar.categoryTitle">Danh mục</h3>
                         <div class="filter-group">
                             <label class="filter-item">
                                 <input type="checkbox" name="category" value="all" checked>
-                                <span>Tất cả</span>
+                                <span data-i18n="sidebar.categories.all">Tất cả</span>
                             </label>
                             <label class="filter-item">
                                 <input type="checkbox" name="category" value="roasted">
-                                <span>Hạt rang</span>
+                                <span data-i18n="sidebar.categories.roasted">Hạt rang</span>
                             </label>
                             <label class="filter-item">
                                 <input type="checkbox" name="category" value="salted">
-                                <span>Hạt muối</span>
+                                <span data-i18n="sidebar.categories.salted">Hạt muối</span>
                             </label>
                             <label class="filter-item">
                                 <input type="checkbox" name="category" value="honey">
-                                <span>Hạt mật ong</span>
+                                <span data-i18n="sidebar.categories.honey">Hạt mật ong</span>
                             </label>
                             <label class="filter-item">
                                 <input type="checkbox" name="category" value="raw">
-                                <span>Hạt sống</span>
+                                <span data-i18n="sidebar.categories.raw">Hạt sống</span>
                             </label>
                             <label class="filter-item">
                                 <input type="checkbox" name="category" value="granola">
-                                <span>Ngũ cốc</span>
+                                <span data-i18n="sidebar.categories.granola">Ngũ cốc</span>
                             </label>
                             <label class="filter-item">
                                 <input type="checkbox" name="category" value="bar">
-                                <span>Thanh dinh dưỡng</span>
+                                <span data-i18n="sidebar.categories.bar">Thanh dinh dưỡng</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="filter-section">
-                        <h3>Khoảng giá</h3>
+                        <h3 data-i18n="sidebar.priceTitle">Khoảng giá</h3>
                         <div class="price-filter">
-                            <input type="number" id="minPrice" placeholder="Từ" min="0">
+                            <input type="number" id="minPrice" data-i18n="sidebar.priceFrom" placeholder="Từ" min="0">
                             <span>-</span>
-                            <input type="number" id="maxPrice" placeholder="Đến" min="0">
+                            <input type="number" id="maxPrice" data-i18n="sidebar.priceTo" placeholder="Đến" min="0">
                         </div>
-                        <button class="btn-filter" id="applyFilter">Áp dụng</button>
+                        <button class="btn-filter" id="applyFilter" data-i18n="sidebar.applyButton">Áp dụng</button>
                     </div>
 
                     <div class="filter-section">
-                        <h3>Sắp xếp</h3>
+                        <h3 data-i18n="sidebar.sortTitle">Sắp xếp</h3>
                         <select id="sortBy" class="sort-select">
-                            <option value="default">Mặc định</option>
-                            <option value="price-asc">Giá tăng dần</option>
-                            <option value="price-desc">Giá giảm dần</option>
-                            <option value="name-asc">Tên A-Z</option>
-                            <option value="name-desc">Tên Z-A</option>
+                            <option value="default" data-i18n="sidebar.sortOptions.default">Mặc định</option>
+                            <option value="price-asc" data-i18n="sidebar.sortOptions.priceAsc">Giá tăng dần</option>
+                            <option value="price-desc" data-i18n="sidebar.sortOptions.priceDesc">Giá giảm dần</option>
+                            <option value="name-asc" data-i18n="sidebar.sortOptions.nameAsc">Tên A-Z</option>
+                            <option value="name-desc" data-i18n="sidebar.sortOptions.nameDesc">Tên Z-A</option>
                         </select>
                     </div>
 
-                    <button class="btn-clear" id="clearFilter">Xóa bộ lọc</button>
+                    <button class="btn-clear" id="clearFilter" data-i18n="sidebar.clearButton">Xóa bộ lọc</button>
                 </aside>
 
                 <!-- Product Grid -->
                 <section class="products-section">
                     <div class="section-header">
-                        <h2>Sản phẩm nổi bật</h2>
-                        <p class="product-count">Hiển thị <span id="productCount">0</span> sản phẩm</p>
+                        <h2 data-i18n="products.title">Sản phẩm nổi bật</h2>
+                        <p class="product-count"><span data-i18n="products.showing">Hiển thị</span> <span id="productCount">0</span> <span data-i18n="products.productsText">sản phẩm</span></p>
                     </div>
 
                     <div class="products-grid" id="productsGrid">
                         <!-- Products will be loaded here dynamically -->
-                        <div class="loading">Đang tải sản phẩm...</div>
+                        <div class="loading" data-i18n="products.loading">Đang tải sản phẩm...</div>
                     </div>
 
                     <!-- Pagination -->
@@ -164,7 +168,7 @@
     <div class="modal" id="cartModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Giỏ hàng của bạn</h2>
+                <h2 data-i18n="cart.title">Giỏ hàng của bạn</h2>
                 <button class="close-btn" id="closeCart">&times;</button>
             </div>
             <div class="modal-body">
@@ -172,16 +176,16 @@
                     <!-- Cart items will be loaded here -->
                 </div>
                 <div class="cart-empty" id="cartEmpty">
-                    <p>Giỏ hàng trống</p>
-                    <p class="text-muted">Hãy thêm sản phẩm vào giỏ hàng!</p>
+                    <p data-i18n="cart.empty">Giỏ hàng trống</p>
+                    <p class="text-muted" data-i18n="cart.emptyHint">Hãy thêm sản phẩm vào giỏ hàng!</p>
                 </div>
             </div>
             <div class="modal-footer">
                 <div class="cart-total">
-                    <span>Tổng cộng:</span>
+                    <span data-i18n="cart.total">Tổng cộng:</span>
                     <span class="total-amount" id="totalAmount">0đ</span>
                 </div>
-                <button class="btn-checkout" id="checkoutBtn">Thanh toán</button>
+                <button class="btn-checkout" id="checkoutBtn" data-i18n="cart.checkoutButton">Thanh toán</button>
             </div>
         </div>
     </div>
@@ -190,7 +194,7 @@
     <div class="modal" id="productModal">
         <div class="modal-content modal-large">
             <div class="modal-header">
-                <h2 id="productModalTitle">Chi tiết sản phẩm</h2>
+                <h2 id="productModalTitle" data-i18n="productDetail.title">Chi tiết sản phẩm</h2>
                 <button class="close-btn" id="closeProduct">&times;</button>
             </div>
             <div class="modal-body" id="productModalBody">
@@ -203,94 +207,94 @@
     <div class="modal" id="checkoutModal">
         <div class="modal-content modal-large">
             <div class="modal-header">
-                <h2>Thanh toán đơn hàng</h2>
+                <h2 data-i18n="checkout.title">Thanh toán đơn hàng</h2>
                 <button class="close-btn" id="closeCheckout">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="checkoutForm">
                     <div class="checkout-section">
-                        <h3>Thông tin khách hàng</h3>
+                        <h3 data-i18n="checkout.customerInfo">Thông tin khách hàng</h3>
                         <div class="form-group">
-                            <label for="customerName">Họ và tên *</label>
-                            <input type="text" id="customerName" required placeholder="Nhập họ và tên">
+                            <label for="customerName"><span data-i18n="checkout.fullName">Họ và tên</span> <span data-i18n="checkout.required">*</span></label>
+                            <input type="text" id="customerName" required data-i18n="checkout.fullNamePlaceholder" placeholder="Nhập họ và tên">
                         </div>
                         <div class="form-group">
-                            <label for="customerPhone">Số điện thoại *</label>
-                            <input type="tel" id="customerPhone" required placeholder="Nhập số điện thoại">
+                            <label for="customerPhone"><span data-i18n="checkout.phone">Số điện thoại</span> <span data-i18n="checkout.required">*</span></label>
+                            <input type="tel" id="customerPhone" required data-i18n="checkout.phonePlaceholder" placeholder="Nhập số điện thoại">
                         </div>
                         <div class="form-group">
-                            <label for="customerEmail">Email</label>
-                            <input type="email" id="customerEmail" placeholder="Nhập email (không bắt buộc)">
+                            <label for="customerEmail" data-i18n="checkout.email">Email</label>
+                            <input type="email" id="customerEmail" data-i18n="checkout.emailPlaceholder" placeholder="Nhập email (không bắt buộc)">
                         </div>
                     </div>
 
                     <div class="checkout-section">
-                        <h3>Địa chỉ giao hàng</h3>
+                        <h3 data-i18n="checkout.shippingInfo">Địa chỉ giao hàng</h3>
                         <div class="form-group">
-                            <label for="shippingAddress">Địa chỉ cụ thể *</label>
-                            <input type="text" id="shippingAddress" required placeholder="Số nhà, tên đường">
+                            <label for="shippingAddress"><span data-i18n="checkout.address">Địa chỉ cụ thể</span> <span data-i18n="checkout.required">*</span></label>
+                            <input type="text" id="shippingAddress" required data-i18n="checkout.addressPlaceholder" placeholder="Số nhà, tên đường">
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="shippingWard">Phường/Xã *</label>
-                                <input type="text" id="shippingWard" required placeholder="Phường/Xã">
+                                <label for="shippingWard"><span data-i18n="checkout.ward">Phường/Xã</span> <span data-i18n="checkout.required">*</span></label>
+                                <input type="text" id="shippingWard" required data-i18n="checkout.wardPlaceholder" placeholder="Phường/Xã">
                             </div>
                             <div class="form-group">
-                                <label for="shippingDistrict">Quận/Huyện *</label>
-                                <input type="text" id="shippingDistrict" required placeholder="Quận/Huyện">
+                                <label for="shippingDistrict"><span data-i18n="checkout.district">Quận/Huyện</span> <span data-i18n="checkout.required">*</span></label>
+                                <input type="text" id="shippingDistrict" required data-i18n="checkout.districtPlaceholder" placeholder="Quận/Huyện">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="shippingCity">Tỉnh/Thành phố *</label>
-                            <input type="text" id="shippingCity" required placeholder="Tỉnh/Thành phố">
+                            <label for="shippingCity"><span data-i18n="checkout.city">Tỉnh/Thành phố</span> <span data-i18n="checkout.required">*</span></label>
+                            <input type="text" id="shippingCity" required data-i18n="checkout.cityPlaceholder" placeholder="Tỉnh/Thành phố">
                         </div>
                         <div class="form-group">
-                            <label for="orderNote">Ghi chú đơn hàng</label>
-                            <textarea id="orderNote" rows="3" placeholder="Ghi chú thêm về đơn hàng (không bắt buộc)"></textarea>
+                            <label for="orderNote" data-i18n="checkout.orderNote">Ghi chú đơn hàng</label>
+                            <textarea id="orderNote" rows="3" data-i18n="checkout.orderNotePlaceholder" placeholder="Ghi chú thêm về đơn hàng (không bắt buộc)"></textarea>
                         </div>
                     </div>
 
                     <div class="checkout-section">
-                        <h3>Thông tin đơn hàng</h3>
+                        <h3 data-i18n="checkout.orderInfo">Thông tin đơn hàng</h3>
                         <div id="checkoutItems" class="checkout-items">
                             <!-- Cart items will be displayed here -->
                         </div>
                         <div class="checkout-total">
                             <div class="total-row">
-                                <span>Tạm tính:</span>
+                                <span data-i18n="checkout.subtotal">Tạm tính:</span>
                                 <span id="checkoutSubtotal">0đ</span>
                             </div>
                             <div class="total-row">
-                                <span>Phí vận chuyển:</span>
-                                <span id="checkoutShipping">Liên hệ</span>
+                                <span data-i18n="checkout.shipping">Phí vận chuyển:</span>
+                                <span id="checkoutShipping" data-i18n="checkout.shippingContact">Liên hệ</span>
                             </div>
                             <div class="total-row total-final">
-                                <span>Tổng cộng:</span>
+                                <span data-i18n="checkout.total">Tổng cộng:</span>
                                 <span id="checkoutTotal">0đ</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="checkout-section">
-                        <h3>Phương thức thanh toán</h3>
+                        <h3 data-i18n="checkout.paymentMethod">Phương thức thanh toán</h3>
                         <div class="payment-method">
                             <label class="payment-option">
                                 <input type="radio" name="paymentMethod" value="bank" checked>
-                                <span>Chuyển khoản ngân hàng</span>
+                                <span data-i18n="checkout.bankTransfer">Chuyển khoản ngân hàng</span>
                             </label>
                             <div class="bank-info">
-                                <p><strong>Ngân hàng:</strong> Vietcombank</p>
-                                <p><strong>Số tài khoản:</strong> 1234567890</p>
-                                <p><strong>Chủ tài khoản:</strong> NGUYEN VAN A</p>
-                                <p><strong>Nội dung:</strong> <span id="transferContent">Họ tên + Số điện thoại</span></p>
-                                <p class="note">* Vui lòng chuyển khoản và gửi ảnh xác nhận qua Zalo/SMS</p>
+                                <p><strong data-i18n="checkout.bankName">Ngân hàng:</strong> Vietcombank</p>
+                                <p><strong data-i18n="checkout.accountNumber">Số tài khoản:</strong> 1234567890</p>
+                                <p><strong data-i18n="checkout.accountHolder">Chủ tài khoản:</strong> NGUYEN VAN A</p>
+                                <p><strong data-i18n="checkout.transferContent">Nội dung:</strong> <span id="transferContent">Họ tên + Số điện thoại</span></p>
+                                <p class="note" data-i18n="checkout.transferNote">* Vui lòng chuyển khoản và gửi ảnh xác nhận qua Zalo/SMS</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="checkout-actions">
-                        <button type="button" class="btn-secondary" id="backToCart">Quay lại giỏ hàng</button>
-                        <button type="submit" class="btn-primary">Xác nhận đặt hàng</button>
+                        <button type="button" class="btn-secondary" id="backToCart" data-i18n="checkout.backToCart">Quay lại giỏ hàng</button>
+                        <button type="submit" class="btn-primary" data-i18n="checkout.confirmOrder">Xác nhận đặt hàng</button>
                     </div>
                 </form>
             </div>
@@ -301,30 +305,30 @@
     <div class="modal" id="successModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Đặt hàng thành công!</h2>
+                <h2 data-i18n="success.title">Đặt hàng thành công!</h2>
                 <button class="close-btn" id="closeSuccess">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="success-message">
                     <div class="success-icon">✓</div>
-                    <h3>Cảm ơn bạn đã đặt hàng!</h3>
-                    <p>Đơn hàng của bạn đã được ghi nhận.</p>
+                    <h3 data-i18n="success.thankYou">Cảm ơn bạn đã đặt hàng!</h3>
+                    <p data-i18n="success.orderReceived">Đơn hàng của bạn đã được ghi nhận.</p>
                     <div class="order-info">
-                        <p><strong>Mã đơn hàng:</strong> <span id="orderCode"></span></p>
-                        <p><strong>Tổng tiền:</strong> <span id="orderTotal"></span></p>
+                        <p><strong data-i18n="success.orderCode">Mã đơn hàng:</strong> <span id="orderCode"></span></p>
+                        <p><strong data-i18n="success.totalAmount">Tổng tiền:</strong> <span id="orderTotal"></span></p>
                     </div>
                     <div class="bank-transfer-info">
-                        <h4>Thông tin chuyển khoản:</h4>
-                        <p><strong>Ngân hàng:</strong> Vietcombank</p>
-                        <p><strong>Số TK:</strong> 1234567890</p>
-                        <p><strong>Chủ TK:</strong> NGUYEN VAN A</p>
-                        <p><strong>Nội dung:</strong> <span id="orderTransferContent"></span></p>
+                        <h4 data-i18n="success.bankTransferInfo">Thông tin chuyển khoản:</h4>
+                        <p><strong data-i18n="success.bankName">Ngân hàng:</strong> Vietcombank</p>
+                        <p><strong data-i18n="success.accountNumber">Số TK:</strong> 1234567890</p>
+                        <p><strong data-i18n="success.accountHolder">Chủ TK:</strong> NGUYEN VAN A</p>
+                        <p><strong data-i18n="success.transferContent">Nội dung:</strong> <span id="orderTransferContent"></span></p>
                     </div>
-                    <p class="note">Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!</p>
+                    <p class="note" data-i18n="success.contactNote">Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!</p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn-primary" id="continueShoppingBtn">Tiếp tục mua hàng</button>
+                <button class="btn-primary" id="continueShoppingBtn" data-i18n="success.continueShoppingButton">Tiếp tục mua hàng</button>
             </div>
         </div>
     </div>
@@ -334,43 +338,65 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Về chúng tôi</h3>
-                    <p>Chuyên cung cấp hạt điều cao cấp từ vùng đất Bình Phước - Thơm ngon, bổ dưỡng.</p>
+                    <h3 data-i18n="footer.aboutTitle">Về chúng tôi</h3>
+                    <p data-i18n="footer.aboutText">Chuyên cung cấp hạt điều cao cấp từ vùng đất Bình Phước - Thơm ngon, bổ dưỡng.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Liên hệ</h3>
-                    <p><i class="fas fa-phone-alt"></i> Hotline: 0343-365-160</p>
-                    <p><i class="fas fa-envelope"></i> Email: cashewnutsvn1@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Bình Phước</p>
+                    <h3 data-i18n="footer.contactTitle">Liên hệ</h3>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="footer.hotline">Hotline:</span> 0343-365-160</p>
+                    <p><i class="fas fa-envelope"></i> <span data-i18n="footer.email">Email:</span> cashewnutsvn1@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Địa chỉ:</span> <span data-i18n="footer.addressText">Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Bình Phước</span></p>
                 </div>
                 <div class="footer-section">
-                    <h3>Chính sách</h3>
-                    <p><a href="#">Chính sách đổi trả</a></p>
-                    <p><a href="#">Chính sách bảo mật</a></p>
-                    <p><a href="#">Điều khoản sử dụng</a></p>
+                    <h3 data-i18n="footer.policyTitle">Chính sách</h3>
+                    <p><a href="#" data-i18n="footer.returnPolicy">Chính sách đổi trả</a></p>
+                    <p><a href="#" data-i18n="footer.privacyPolicy">Chính sách bảo mật</a></p>
+                    <p><a href="#" data-i18n="footer.termsOfUse">Điều khoản sử dụng</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Premium Cashew Nuts. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 Premium Cashew Nuts. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/app.js"></script>
     <script src="js/analytics.js"></script>
+    
+    <!-- Discord Analytics -->
+    <script src="js/analytics-discord.js"></script>
+    <script>
+        // HƯỚNG DẪN LẤY WEBHOOK URL (2 phút):
+        // 1. Vào Discord server của bạn
+        // 2. Click vào Settings (biểu tượng bánh răng) của channel muốn nhận thông báo
+        // 3. Chọn "Integrations" → "Webhooks" → "New Webhook"
+        // 4. Đặt tên "Website Analytics" và click "Copy Webhook URL"
+        // 5. Paste URL vào dưới đây thay chữ YOUR_DISCORD_WEBHOOK_URL
+        
+        const WEBHOOK_URL = 'YOUR_DISCORD_WEBHOOK_URL';
+        
+        // Chỉ khởi tạo nếu đã có webhook URL
+        if (WEBHOOK_URL && WEBHOOK_URL !== 'YOUR_DISCORD_WEBHOOK_URL') {
+            const discordAnalytics = new DiscordAnalytics(WEBHOOK_URL);
+        } else {
+            console.warn('⚠️ Discord Analytics: Chưa cấu hình webhook URL. Xem hướng dẫn ở trên.');
+        }
+    </script>
 
     <!-- Floating Contact Buttons -->
     <div class="floating-contact">
         <a href="https://zalo.me/0343365160" target="_blank" class="contact-btn zalo-btn" title="Chat Zalo">
             <i class="fab fa-facebook-messenger"></i>
-            <span>Zalo</span>
+            <span data-i18n="floatingContact.zalo">Zalo</span>
         </a>
         <a href="tel:0343365160" class="contact-btn phone-btn" title="Gọi điện">
             <i class="fas fa-phone-alt"></i>
-            <span>Gọi ngay</span>
+            <span data-i18n="floatingContact.phone">Gọi ngay</span>
         </a>
     </div>
 </body>

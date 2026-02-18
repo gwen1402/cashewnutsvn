@@ -38,12 +38,15 @@ class ShoppingCart {
     addItem(product, quantity = 1) {
         const existingItem = this.items.find(item => item.productId === product.id);
         
+        // Get translated product name
+        const productName = typeof i18n !== 'undefined' ? i18n.getProductTranslation(product.id, 'name') : product.name;
+        
         if (existingItem) {
             existingItem.quantity += quantity;
         } else {
             this.items.push({
                 productId: product.id,
-                name: product.name,
+                name: product.name, // Store original for reference
                 price: product.price,
                 quantity: quantity,
                 image: product.image
@@ -52,17 +55,27 @@ class ShoppingCart {
         
         this.saveToStorage();
         this.updateCartUI();
-        utils.showNotification(`Đã thêm "${product.name}" vào giỏ hàng!`);
+        
+        const message = typeof i18n !== 'undefined' 
+            ? i18n.t('notifications.addedToCart').replace('{product}', productName)
+            : `Đã thêm "${productName}" vào giỏ hàng!`;
+        utils.showNotification(message);
     }
 
     // Remove item from cart
     removeItem(productId) {
         const item = this.items.find(i => i.productId === productId);
+        const productName = typeof i18n !== 'undefined' ? i18n.getProductTranslation(productId, 'name') : (item ? item.name : '');
+        
         this.items = this.items.filter(item => item.productId !== productId);
         this.saveToStorage();
         this.updateCartUI();
+        
         if (item) {
-            utils.showNotification(`Đã xóa "${item.name}" khỏi giỏ hàng!`);
+            const message = typeof i18n !== 'undefined' 
+                ? i18n.t('notifications.removedFromCart').replace('{product}', productName)
+                : `Đã xóa "${productName}" khỏi giỏ hàng!`;
+            utils.showNotification(message);
         }
     }
 
@@ -125,22 +138,28 @@ class ShoppingCart {
         if (cartItems) cartItems.style.display = 'block';
         if (cartEmpty) cartEmpty.style.display = 'none';
 
+        const removeButtonText = typeof i18n !== 'undefined' ? i18n.t('cart.removeButton') : 'Xóa';
+
         if (cartItems) {
-            cartItems.innerHTML = this.items.map(item => `
-                <div class="cart-item" data-product-id="${item.productId}">
-                    <img src="${item.image}" alt="${utils.sanitizeHTML(item.name)}" class="cart-item-image">
-                    <div class="cart-item-info">
-                        <div class="cart-item-name">${utils.sanitizeHTML(item.name)}</div>
-                        <div class="cart-item-price">${utils.formatCurrency(item.price)}</div>
-                        <div class="cart-item-controls">
-                            <button class="qty-btn" onclick="cart.updateQuantity('${item.productId}', ${item.quantity - 1})">-</button>
-                            <span class="qty-display">${item.quantity}</span>
-                            <button class="qty-btn" onclick="cart.updateQuantity('${item.productId}', ${item.quantity + 1})">+</button>
-                            <button class="btn-remove" onclick="cart.removeItem('${item.productId}')">Xóa</button>
+            cartItems.innerHTML = this.items.map(item => {
+                const productName = typeof i18n !== 'undefined' ? i18n.getProductTranslation(item.productId, 'name') : item.name;
+                
+                return `
+                    <div class="cart-item" data-product-id="${item.productId}">
+                        <img src="${item.image}" alt="${utils.sanitizeHTML(productName)}" class="cart-item-image">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${utils.sanitizeHTML(productName)}</div>
+                            <div class="cart-item-price">${utils.formatCurrency(item.price)}</div>
+                            <div class="cart-item-controls">
+                                <button class="qty-btn" onclick="cart.updateQuantity('${item.productId}', ${item.quantity - 1})">-</button>
+                                <span class="qty-display">${item.quantity}</span>
+                                <button class="qty-btn" onclick="cart.updateQuantity('${item.productId}', ${item.quantity + 1})">+</button>
+                                <button class="btn-remove" onclick="cart.removeItem('${item.productId}')">${removeButtonText}</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         if (totalAmount) {
@@ -168,6 +187,17 @@ class ShoppingCart {
 
 // Initialize cart
 const cart = new ShoppingCart();
+
+// Listen for language changes
+window.addEventListener('localeChanged', () => {
+    cart.updateCartUI();
+    
+    // Update checkout modal if it's open
+    const checkoutModal = document.getElementById('checkoutModal');
+    if (checkoutModal && checkoutModal.classList.contains('active')) {
+        showCheckoutModal();
+    }
+});
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
@@ -198,7 +228,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
             if (cart.items.length === 0) {
-                utils.showNotification('Giỏ hàng trống!', 'error');
+                const emptyMessage = typeof i18n !== 'undefined' ? i18n.t('notifications.cartEmpty') : 'Giỏ hàng trống!';
+                utils.showNotification(emptyMessage, 'error');
                 return;
             }
             cart.hideModal();
@@ -254,12 +285,16 @@ function showCheckoutModal() {
     // Render checkout items
     const checkoutItems = document.getElementById('checkoutItems');
     if (checkoutItems) {
-        checkoutItems.innerHTML = cart.items.map(item => `
-            <div class="checkout-item">
-                <span class="item-name">${utils.sanitizeHTML(item.name)} x ${item.quantity}</span>
-                <span class="item-price">${utils.formatCurrency(item.price * item.quantity)}</span>
-            </div>
-        `).join('');
+        checkoutItems.innerHTML = cart.items.map(item => {
+            const productName = typeof i18n !== 'undefined' ? i18n.getProductTranslation(item.productId, 'name') : item.name;
+            
+            return `
+                <div class="checkout-item">
+                    <span class="item-name">${utils.sanitizeHTML(productName)} x ${item.quantity}</span>
+                    <span class="item-price">${utils.formatCurrency(item.price * item.quantity)}</span>
+                </div>
+            `;
+        }).join('');
     }
 
     // Update totals

@@ -29,14 +29,18 @@
                     <h1>CASHEW NUTS</h1>
                 </div>
                 <nav class="nav">
-                    <a href="index.html" class="nav-link">Trang chủ</a>
-                    <a href="about.html" class="nav-link active">Về chúng tôi</a>
-                    <a href="policy.html" class="nav-link">Chính sách</a>
-                    <a href="#" class="nav-link">Liên hệ</a>
+                    <a href="index.html" class="nav-link" data-i18n="nav.home">Trang chủ</a>
+                    <a href="about.html" class="nav-link active" data-i18n="nav.about">Về chúng tôi</a>
+                    <a href="policy.html" class="nav-link" data-i18n="nav.policy">Chính sách</a>
+                    <a href="#" class="nav-link" data-i18n="nav.contact">Liên hệ</a>
                 </nav>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="vi" onclick="i18n.setLocale('vi')">VI</button>
+                    <button class="lang-btn" data-lang="en" onclick="i18n.setLocale('en')">EN</button>
+                </div>
                 <div class="header-actions">
                     <div class="search-box">
-                        <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                        <input type="text" id="searchInput" data-i18n-placeholder="header.searchPlaceholder" placeholder="Tìm kiếm sản phẩm...">
                         <button class="search-btn"><i class="fas fa-search"></i></button>
                     </div>
                     <button class="cart-btn" id="cartBtn">
@@ -51,92 +55,92 @@
     <main class="main-content">
         <div class="container">
             <div class="page-content">
-                <h1 class="page-title">Về Chúng Tôi</h1>
+                <h1 class="page-title" data-i18n="about.pageTitle">Về Chúng Tôi</h1>
                 
                 <section class="content-section">
-                    <h2>Câu Chuyện Của Chúng Tôi</h2>
-                    <p>Premium Cashew Nuts được thành lập với sứ mệnh mang đến những sản phẩm hạt điều cao cấp, chất lượng nhất từ vùng đất Bình Phước - nơi có điều kiện khí hậu và đất đai lý tưởng cho cây điều phát triển.</p>
-                    <p>Chúng tôi tự hào là đơn vị cung cấp hạt điều với quy trình sản xuất khép kín, từ khâu chọn giống, trồng trọt, chăm sóc, thu hoạch đến chế biến và đóng gói, đảm bảo mang đến sản phẩm tươi ngon, an toàn và bổ dưỡng nhất cho khách hàng.</p>
+                    <h2 data-i18n="about.storyTitle">Câu Chuyện Của Chúng Tôi</h2>
+                    <p data-i18n="about.storyP1">Premium Cashew Nuts được thành lập với sứ mệnh mang đến những sản phẩm hạt điều cao cấp, chất lượng nhất từ vùng đất Bình Phước - nơi có điều kiện khí hậu và đất đai lý tưởng cho cây điều phát triển.</p>
+                    <p data-i18n="about.storyP2">Chúng tôi tự hào là đơn vị cung cấp hạt điều với quy trình sản xuất khép kín, từ khâu chọn giống, trồng trọt, chăm sóc, thu hoạch đến chế biến và đóng gói, đảm bảo mang đến sản phẩm tươi ngon, an toàn và bổ dưỡng nhất cho khách hàng.</p>
                 </section>
 
                 <section class="content-section">
-                    <h2>Giá Trị Cốt Lõi</h2>
+                    <h2 data-i18n="about.valuesTitle">Giá Trị Cốt Lõi</h2>
                     <div class="values-grid">
                         <div class="value-item">
-                            <h3><i class="fas fa-seedling"></i> Chất Lượng</h3>
-                            <p>Cam kết 100% hạt điều tự nhiên, không chất bảo quản, không hóa chất độc hại.</p>
+                            <h3><i class="fas fa-seedling"></i> <span data-i18n="about.valueQuality">Chất Lượng</span></h3>
+                            <p data-i18n="about.valueQualityDesc">Cam kết 100% hạt điều tự nhiên, không chất bảo quản, không hóa chất độc hại.</p>
                         </div>
                         <div class="value-item">
-                            <h3><i class="fas fa-handshake"></i> Uy Tín</h3>
-                            <p>Minh bạch nguồn gốc, rõ ràng quy trình, đảm bảo quyền lợi khách hàng.</p>
+                            <h3><i class="fas fa-handshake"></i> <span data-i18n="about.valueTrust">Uy Tín</span></h3>
+                            <p data-i18n="about.valueTrustDesc">Minh bạch nguồn gốc, rõ ràng quy trình, đảm bảo quyền lợi khách hàng.</p>
                         </div>
                         <div class="value-item">
-                            <h3><i class="fas fa-heart"></i> Tận Tâm</h3>
-                            <p>Phục vụ khách hàng với sự nhiệt tình, chu đáo và chuyên nghiệp.</p>
+                            <h3><i class="fas fa-heart"></i> <span data-i18n="about.valueDedication">Tận Tâm</span></h3>
+                            <p data-i18n="about.valueDedicationDesc">Phục vụ khách hàng với sự nhiệt tình, chu đáo và chuyên nghiệp.</p>
                         </div>
                         <div class="value-item">
-                            <h3><i class="fas fa-rocket"></i> Đổi Mới</h3>
-                            <p>Không ngừng cải tiến, phát triển sản phẩm mới đáp ứng nhu cầu thị trường.</p>
+                            <h3><i class="fas fa-rocket"></i> <span data-i18n="about.valueInnovation">Đổi Mới</span></h3>
+                            <p data-i18n="about.valueInnovationDesc">Không ngừng cải tiến, phát triển sản phẩm mới đáp ứng nhu cầu thị trường.</p>
                         </div>
                     </div>
                 </section>
 
                 <section class="content-section">
-                    <h2>Quy Trình Sản Xuất</h2>
+                    <h2 data-i18n="about.processTitle">Quy Trình Sản Xuất</h2>
                     <div class="process-steps">
                         <div class="step">
                             <div class="step-number">1</div>
-                            <h3>Chọn Giống</h3>
-                            <p>Lựa chọn giống hạt điều chất lượng cao, năng suất tốt</p>
+                            <h3 data-i18n="about.step1">Chọn Giống</h3>
+                            <p data-i18n="about.step1Desc">Lựa chọn giống hạt điều chất lượng cao, năng suất tốt</p>
                         </div>
                         <div class="step">
                             <div class="step-number">2</div>
-                            <h3>Trồng & Chăm Sóc</h3>
-                            <p>Áp dụng quy trình canh tác hữu cơ, thân thiện môi trường</p>
+                            <h3 data-i18n="about.step2">Trồng & Chăm Sóc</h3>
+                            <p data-i18n="about.step2Desc">Áp dụng quy trình canh tác hữu cơ, thân thiện môi trường</p>
                         </div>
                         <div class="step">
                             <div class="step-number">3</div>
-                            <h3>Thu Hoạch</h3>
-                            <p>Thu hái đúng độ chín, đảm bảo chất lượng tốt nhất</p>
+                            <h3 data-i18n="about.step3">Thu Hoạch</h3>
+                            <p data-i18n="about.step3Desc">Thu hái đúng độ chín, đảm bảo chất lượng tốt nhất</p>
                         </div>
                         <div class="step">
                             <div class="step-number">4</div>
-                            <h3>Chế Biến</h3>
-                            <p>Sử dụng công nghệ hiện đại, giữ nguyên dinh dưỡng</p>
+                            <h3 data-i18n="about.step4">Chế Biến</h3>
+                            <p data-i18n="about.step4Desc">Sử dụng công nghệ hiện đại, giữ nguyên dinh dưỡng</p>
                         </div>
                         <div class="step">
                             <div class="step-number">5</div>
-                            <h3>Đóng Gói</h3>
-                            <p>Đóng gói chân không, bảo quản tươi ngon lâu dài</p>
+                            <h3 data-i18n="about.step5">Đóng Gói</h3>
+                            <p data-i18n="about.step5Desc">Đóng gói chân không, bảo quản tươi ngon lâu dài</p>
                         </div>
                         <div class="step">
                             <div class="step-number">6</div>
-                            <h3>Giao Hàng</h3>
-                            <p>Vận chuyển nhanh chóng, đảm bảo sản phẩm nguyên vẹn</p>
+                            <h3 data-i18n="about.step6">Giao Hàng</h3>
+                            <p data-i18n="about.step6Desc">Vận chuyển nhanh chóng, đảm bảo sản phẩm nguyên vẹn</p>
                         </div>
                     </div>
                 </section>
 
                 <section class="content-section">
-                    <h2>Tại Sao Chọn Chúng Tôi?</h2>
+                    <h2 data-i18n="about.whyChooseTitle">Tại Sao Chọn Chúng Tôi?</h2>
                     <ul class="benefits-list">
-                        <li>✓ Hạt điều 100% tự nhiên, không hóa chất</li>
-                        <li>✓ Nguồn gốc rõ ràng từ vùng đất Bình Phước</li>
-                        <li>✓ Giá cả cạnh tranh, ưu đãi cho khách hàng thân thiết</li>
-                        <li>✓ Đa dạng sản phẩm: hạt rang, hạt muối, ngũ cốc, thanh dinh dưỡng</li>
-                        <li>✓ Giao hàng nhanh chóng toàn quốc</li>
-                        <li>✓ Hỗ trợ tư vấn nhiệt tình 24/7</li>
-                        <li>✓ Chính sách đổi trả linh hoạt</li>
+                        <li data-i18n="about.benefit1">✓ Hạt điều 100% tự nhiên, không hóa chất</li>
+                        <li data-i18n="about.benefit2">✓ Nguồn gốc rõ ràng từ vùng đất Bình Phước</li>
+                        <li data-i18n="about.benefit3">✓ Giá cả cạnh tranh, ưu đãi cho khách hàng thân thiết</li>
+                        <li data-i18n="about.benefit4">✓ Đa dạng sản phẩm: hạt rang, hạt muối, ngũ cốc, thanh dinh dưỡng</li>
+                        <li data-i18n="about.benefit5">✓ Giao hàng nhanh chóng toàn quốc</li>
+                        <li data-i18n="about.benefit6">✓ Hỗ trợ tư vấn nhiệt tình 24/7</li>
+                        <li data-i18n="about.benefit7">✓ Chính sách đổi trả linh hoạt</li>
                     </ul>
                 </section>
 
                 <section class="content-section">
-                    <h2>Liên Hệ Với Chúng Tôi</h2>
+                    <h2 data-i18n="about.contactTitle">Liên Hệ Với Chúng Tôi</h2>
                     <div class="contact-info">
-                        <p><strong><i class="fas fa-map-marker-alt"></i> Địa chỉ:</strong> Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Bình Phước</p>
-                        <p><strong><i class="fas fa-phone-alt"></i> Hotline:</strong> 0343-365-160</p>
-                        <p><strong><i class="fas fa-envelope"></i> Email:</strong> cashewnutsvn1@gmail.com</p>
-                        <p><strong><i class="fas fa-clock"></i> Giờ làm việc:</strong> 8:00 - 20:00 (Thứ 2 - Chủ Nhật)</p>
+                        <p><strong><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Địa chỉ:</span></strong> <span data-i18n="footer.addressText">Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Bình Phước</span></p>
+                        <p><strong><i class="fas fa-phone-alt"></i> <span data-i18n="footer.hotline">Hotline:</span></strong> 0343-365-160</p>
+                        <p><strong><i class="fas fa-envelope"></i> <span data-i18n="footer.email">Email:</span></strong> cashewnutsvn1@gmail.com</p>
+                        <p><strong><i class="fas fa-clock"></i> <span data-i18n="about.workingHours">Giờ làm việc:</span></strong> <span data-i18n="about.workingHoursValue">8:00 - 20:00 (Thứ 2 - Chủ Nhật)</span></p>
                     </div>
                 </section>
             </div>
@@ -148,24 +152,24 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Về chúng tôi</h3>
-                    <p>Chuyên cung cấp hạt điều cao cấp từ vùng đất Bình Phước - Thơm ngon, bổ dưỡng.</p>
+                    <h3 data-i18n="footer.aboutTitle">Về chúng tôi</h3>
+                    <p data-i18n="footer.aboutText">Chuyên cung cấp hạt điều cao cấp từ vùng đất Bình Phước - Thơm ngon, bổ dưỡng.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Liên hệ</h3>
-                    <p><i class="fas fa-phone-alt"></i> Hotline: 0343-365-160</p>
-                    <p><i class="fas fa-envelope"></i> Email: cashewnutsvn1@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Bình Phước</p>
+                    <h3 data-i18n="footer.contactTitle">Liên hệ</h3>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="footer.hotline">Hotline:</span> 0343-365-160</p>
+                    <p><i class="fas fa-envelope"></i> <span data-i18n="footer.email">Email:</span> cashewnutsvn1@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Địa chỉ:</span> <span data-i18n="footer.addressText">Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Bình Phước</span></p>
                 </div>
                 <div class="footer-section">
-                    <h3>Chính sách</h3>
-                    <p><a href="policy.html">Chính sách đổi trả</a></p>
-                    <p><a href="policy.html">Chính sách bảo mật</a></p>
-                    <p><a href="policy.html">Điều khoản sử dụng</a></p>
+                    <h3 data-i18n="footer.policyTitle">Chính sách</h3>
+                    <p><a href="policy.html" data-i18n="footer.returnPolicy">Chính sách đổi trả</a></p>
+                    <p><a href="policy.html" data-i18n="footer.privacyPolicy">Chính sách bảo mật</a></p>
+                    <p><a href="policy.html" data-i18n="footer.termsOfUse">Điều khoản sử dụng</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Premium Cashew Nuts. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 Premium Cashew Nuts. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -174,15 +178,26 @@
     <div class="floating-contact">
         <a href="https://zalo.me/0343365160" target="_blank" class="contact-btn zalo-btn" title="Chat Zalo">
             <i class="fab fa-facebook-messenger"></i>
-            <span>Zalo</span>
+            <span data-i18n="floatingContact.zalo">Zalo</span>
         </a>
         <a href="tel:0343365160" class="contact-btn phone-btn" title="Gọi điện">
             <i class="fas fa-phone-alt"></i>
-            <span>Gọi ngay</span>
+            <span data-i18n="floatingContact.phone">Gọi ngay</span>
         </a>
     </div>
 
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/cart.js"></script>
+    
+    <!-- Discord Analytics -->
+    <script src="js/analytics-discord.js"></script>
+    <script>
+        const WEBHOOK_URL = 'YOUR_DISCORD_WEBHOOK_URL';
+        if (WEBHOOK_URL && WEBHOOK_URL !== 'YOUR_DISCORD_WEBHOOK_URL') {
+            const discordAnalytics = new DiscordAnalytics(WEBHOOK_URL);
+        }
+    </script>
 </body>
 </html>

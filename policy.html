@@ -29,14 +29,18 @@
                     <h1>CASHEW NUTS</h1>
                 </div>
                 <nav class="nav">
-                    <a href="index.html" class="nav-link">Trang chủ</a>
-                    <a href="about.html" class="nav-link">Về chúng tôi</a>
-                    <a href="policy.html" class="nav-link active">Chính sách</a>
-                    <a href="#" class="nav-link">Liên hệ</a>
+                    <a href="index.html" class="nav-link" data-i18n="nav.home">Trang chủ</a>
+                    <a href="about.html" class="nav-link" data-i18n="nav.about">Về chúng tôi</a>
+                    <a href="policy.html" class="nav-link active" data-i18n="nav.policy">Chính sách</a>
+                    <a href="#" class="nav-link" data-i18n="nav.contact">Liên hệ</a>
                 </nav>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="vi" onclick="i18n.setLocale('vi')">VI</button>
+                    <button class="lang-btn" data-lang="en" onclick="i18n.setLocale('en')">EN</button>
+                </div>
                 <div class="header-actions">
                     <div class="search-box">
-                        <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                        <input type="text" id="searchInput" data-i18n-placeholder="header.searchPlaceholder" placeholder="Tìm kiếm sản phẩm...">
                         <button class="search-btn"><i class="fas fa-search"></i></button>
                     </div>
                     <button class="cart-btn" id="cartBtn">
@@ -51,172 +55,172 @@
     <main class="main-content">
         <div class="container">
             <div class="page-content">
-                <h1 class="page-title">Chính Sách & Điều Khoản</h1>
+                <h1 class="page-title" data-i18n="policy.pageTitle">Chính Sách & Điều Khoản</h1>
                 
                 <section class="content-section">
-                    <h2>1. Chính Sách Đổi Trả</h2>
+                    <h2 data-i18n="policy.returnTitle">1. Chính Sách Đổi Trả</h2>
                     
-                    <h3>1.1. Điều Kiện Đổi Trả</h3>
-                    <p>Chúng tôi chấp nhận đổi trả sản phẩm trong các trường hợp sau:</p>
+                    <h3 data-i18n="policy.returnConditionsTitle">1.1. Điều Kiện Đổi Trả</h3>
+                    <p data-i18n="policy.returnConditionsIntro">Chúng tôi chấp nhận đổi trả sản phẩm trong các trường hợp sau:</p>
                     <ul>
-                        <li>Sản phẩm bị lỗi do nhà sản xuất</li>
-                        <li>Sản phẩm không đúng với mô tả</li>
-                        <li>Sản phẩm bị hư hỏng trong quá trình vận chuyển</li>
-                        <li>Giao nhầm sản phẩm</li>
+                        <li data-i18n="policy.returnCond1">Sản phẩm bị lỗi do nhà sản xuất</li>
+                        <li data-i18n="policy.returnCond2">Sản phẩm không đúng với mô tả</li>
+                        <li data-i18n="policy.returnCond3">Sản phẩm bị hư hỏng trong quá trình vận chuyển</li>
+                        <li data-i18n="policy.returnCond4">Giao nhầm sản phẩm</li>
                     </ul>
 
-                    <h3>1.2. Thời Gian Đổi Trả</h3>
+                    <h3 data-i18n="policy.returnTimeTitle">1.2. Thời Gian Đổi Trả</h3>
                     <ul>
-                        <li>Khách hàng có thể yêu cầu đổi trả trong vòng 7 ngày kể từ ngày nhận hàng</li>
-                        <li>Sản phẩm phải còn nguyên vẹn, chưa qua sử dụng</li>
-                        <li>Còn đầy đủ bao bì, tem nhãn, hóa đơn mua hàng</li>
+                        <li data-i18n="policy.returnTime1">Khách hàng có thể yêu cầu đổi trả trong vòng 7 ngày kể từ ngày nhận hàng</li>
+                        <li data-i18n="policy.returnTime2">Sản phẩm phải còn nguyên vẹn, chưa qua sử dụng</li>
+                        <li data-i18n="policy.returnTime3">Còn đầy đủ bao bì, tem nhãn, hóa đơn mua hàng</li>
                     </ul>
 
-                    <h3>1.3. Quy Trình Đổi Trả</h3>
+                    <h3 data-i18n="policy.returnProcessTitle">1.3. Quy Trình Đổi Trả</h3>
                     <ol>
-                        <li>Liên hệ với chúng tôi qua Hotline hoặc Zalo</li>
-                        <li>Cung cấp thông tin đơn hàng và lý do đổi trả</li>
-                        <li>Gửi ảnh sản phẩm cần đổi trả</li>
-                        <li>Chúng tôi sẽ xác nhận và hướng dẫn cụ thể</li>
-                        <li>Gửi sản phẩm về địa chỉ của chúng tôi</li>
-                        <li>Nhận sản phẩm mới hoặc hoàn tiền trong 3-5 ngày làm việc</li>
+                        <li data-i18n="policy.returnProcess1">Liên hệ với chúng tôi qua Hotline hoặc Zalo</li>
+                        <li data-i18n="policy.returnProcess2">Cung cấp thông tin đơn hàng và lý do đổi trả</li>
+                        <li data-i18n="policy.returnProcess3">Gửi ảnh sản phẩm cần đổi trả</li>
+                        <li data-i18n="policy.returnProcess4">Chúng tôi sẽ xác nhận và hướng dẫn cụ thể</li>
+                        <li data-i18n="policy.returnProcess5">Gửi sản phẩm về địa chỉ của chúng tôi</li>
+                        <li data-i18n="policy.returnProcess6">Nhận sản phẩm mới hoặc hoàn tiền trong 3-5 ngày làm việc</li>
                     </ol>
 
-                    <h3>1.4. Chi Phí Đổi Trả</h3>
+                    <h3 data-i18n="policy.returnCostTitle">1.4. Chi Phí Đổi Trả</h3>
                     <ul>
-                        <li>Nếu lỗi từ nhà cung cấp: Chúng tôi chịu toàn bộ chi phí</li>
-                        <li>Nếu khách hàng đổi ý: Khách hàng chịu phí vận chuyển 2 chiều</li>
+                        <li data-i18n="policy.returnCost1">Nếu lỗi từ nhà cung cấp: Chúng tôi chịu toàn bộ chi phí</li>
+                        <li data-i18n="policy.returnCost2">Nếu khách hàng đổi ý: Khách hàng chịu phí vận chuyển 2 chiều</li>
                     </ul>
                 </section>
 
                 <section class="content-section">
-                    <h2>2. Chính Sách Giao Hàng</h2>
+                    <h2 data-i18n="policy.shippingTitle">2. Chính Sách Giao Hàng</h2>
                     
-                    <h3>2.1. Phạm Vi Giao Hàng</h3>
-                    <p>Chúng tôi giao hàng toàn quốc qua các đơn vị vận chuyển uy tín:</p>
+                    <h3 data-i18n="policy.shippingRangeTitle">2.1. Phạm Vi Giao Hàng</h3>
+                    <p data-i18n="policy.shippingRangeIntro">Chúng tôi giao hàng toàn quốc qua các đơn vị vận chuyển uy tín:</p>
                     <ul>
                         <li>Giao Hàng Nhanh (GHN)</li>
                         <li>Giao Hàng Tiết Kiệm (GHTK)</li>
                         <li>Viettel Post</li>
                     </ul>
 
-                    <h3>2.2. Thời Gian Giao Hàng</h3>
+                    <h3 data-i18n="policy.shippingTimeTitle">2.2. Thời Gian Giao Hàng</h3>
                     <ul>
-                        <li>Nội thành Bình Phước: 1-2 ngày</li>
-                        <li>TP.HCM và các tỉnh lân cận: 2-3 ngày</li>
-                        <li>Các tỉnh thành khác: 3-5 ngày</li>
-                        <li>Vùng xa, hải đảo: 5-7 ngày</li>
+                        <li data-i18n="policy.shippingTime1">Nội thành Bình Phước: 1-2 ngày</li>
+                        <li data-i18n="policy.shippingTime2">TP.HCM và các tỉnh lân cận: 2-3 ngày</li>
+                        <li data-i18n="policy.shippingTime3">Các tỉnh thành khác: 3-5 ngày</li>
+                        <li data-i18n="policy.shippingTime4">Vùng xa, hải đảo: 5-7 ngày</li>
                     </ul>
 
-                    <h3>2.3. Phí Vận Chuyển</h3>
+                    <h3 data-i18n="policy.shippingFeeTitle">2.3. Phí Vận Chuyển</h3>
                     <ul>
-                        <li>Đơn hàng từ 500.000đ: Miễn phí vận chuyển</li>
-                        <li>Đơn hàng dưới 500.000đ: Phí vận chuyển theo khu vực (20.000đ - 50.000đ)</li>
+                        <li data-i18n="policy.shippingFee1">Đơn hàng từ 500.000đ: Miễn phí vận chuyển</li>
+                        <li data-i18n="policy.shippingFee2">Đơn hàng dưới 500.000đ: Phí vận chuyển theo khu vực (20.000đ - 50.000đ)</li>
                     </ul>
 
-                    <h3>2.4. Kiểm Tra Hàng Khi Nhận</h3>
-                    <p>Khách hàng vui lòng:</p>
+                    <h3 data-i18n="policy.shippingCheckTitle">2.4. Kiểm Tra Hàng Khi Nhận</h3>
+                    <p data-i18n="policy.shippingCheckIntro">Khách hàng vui lòng:</p>
                     <ul>
-                        <li>Kiểm tra tình trạng bên ngoài của kiện hàng</li>
-                        <li>Quay video khi mở hàng (nếu có thể)</li>
-                        <li>Kiểm tra số lượng, chủng loại sản phẩm</li>
-                        <li>Liên hệ ngay nếu phát hiện sai sót</li>
+                        <li data-i18n="policy.shippingCheck1">Kiểm tra tình trạng bên ngoài của kiện hàng</li>
+                        <li data-i18n="policy.shippingCheck2">Quay video khi mở hàng (nếu có thể)</li>
+                        <li data-i18n="policy.shippingCheck3">Kiểm tra số lượng, chủng loại sản phẩm</li>
+                        <li data-i18n="policy.shippingCheck4">Liên hệ ngay nếu phát hiện sai sót</li>
                     </ul>
                 </section>
 
                 <section class="content-section">
-                    <h2>3. Chính Sách Thanh Toán</h2>
+                    <h2 data-i18n="policy.paymentTitle">3. Chính Sách Thanh Toán</h2>
                     
-                    <h3>3.1. Hình Thức Thanh Toán</h3>
+                    <h3 data-i18n="policy.paymentMethodTitle">3.1. Hình Thức Thanh Toán</h3>
                     <ul>
-                        <li><strong>Chuyển khoản ngân hàng:</strong> Chuyển trước khi giao hàng</li>
-                        <li><strong>COD:</strong> Thanh toán khi nhận hàng (áp dụng đơn hàng dưới 2.000.000đ)</li>
+                        <li><strong data-i18n="checkout.bankTransfer">Chuyển khoản ngân hàng:</strong> <span data-i18n="policy.paymentMethod1">Chuyển trước khi giao hàng</span></li>
+                        <li><strong>COD:</strong> <span data-i18n="policy.paymentMethod2">Thanh toán khi nhận hàng (áp dụng đơn hàng dưới 2.000.000đ)</span></li>
                     </ul>
 
-                    <h3>3.2. Thông Tin Chuyển Khoản</h3>
+                    <h3 data-i18n="policy.paymentInfoTitle">3.2. Thông Tin Chuyển Khoản</h3>
                     <div class="bank-info-box">
-                        <p><strong>Ngân hàng:</strong> Vietcombank</p>
-                        <p><strong>Số tài khoản:</strong> 1234567890</p>
-                        <p><strong>Chủ tài khoản:</strong> NGUYEN VAN A</p>
-                        <p><strong>Nội dung:</strong> Họ tên + Số điện thoại</p>
+                        <p><strong data-i18n="checkout.bankName">Ngân hàng:</strong> Vietcombank</p>
+                        <p><strong data-i18n="checkout.accountNumber">Số tài khoản:</strong> 1234567890</p>
+                        <p><strong data-i18n="checkout.accountHolder">Chủ tài khoản:</strong> NGUYEN VAN A</p>
+                        <p><strong data-i18n="checkout.transferContent">Nội dung:</strong> Họ tên + Số điện thoại</p>
                     </div>
 
-                    <h3>3.3. Xác Nhận Thanh Toán</h3>
-                    <p>Sau khi chuyển khoản, vui lòng:</p>
+                    <h3 data-i18n="policy.paymentConfirmTitle">3.3. Xác Nhận Thanh Toán</h3>
+                    <p data-i18n="policy.paymentConfirmIntro">Sau khi chuyển khoản, vui lòng:</p>
                     <ul>
-                        <li>Chụp ảnh biên lai chuyển khoản</li>
-                        <li>Gửi qua Zalo hoặc SMS đến số hotline</li>
-                        <li>Chúng tôi sẽ xác nhận và xử lý đơn hàng trong 1-2 giờ</li>
+                        <li data-i18n="policy.paymentConfirm1">Chụp ảnh biên lai chuyển khoản</li>
+                        <li data-i18n="policy.paymentConfirm2">Gửi qua Zalo hoặc SMS đến số hotline</li>
+                        <li data-i18n="policy.paymentConfirm3">Chúng tôi sẽ xác nhận và xử lý đơn hàng trong 1-2 giờ</li>
                     </ul>
                 </section>
 
                 <section class="content-section">
-                    <h2>4. Chính Sách Bảo Mật</h2>
+                    <h2 data-i18n="policy.privacyTitle">4. Chính Sách Bảo Mật</h2>
                     
-                    <h3>4.1. Thu Thập Thông Tin</h3>
-                    <p>Chúng tôi thu thập các thông tin sau:</p>
+                    <h3 data-i18n="policy.privacyCollectTitle">4.1. Thu Thập Thông Tin</h3>
+                    <p data-i18n="policy.privacyCollectIntro">Chúng tôi thu thập các thông tin sau:</p>
                     <ul>
-                        <li>Họ tên, số điện thoại, email</li>
-                        <li>Địa chỉ giao hàng</li>
-                        <li>Thông tin đơn hàng</li>
+                        <li data-i18n="policy.privacyCollect1">Họ tên, số điện thoại, email</li>
+                        <li data-i18n="policy.privacyCollect2">Địa chỉ giao hàng</li>
+                        <li data-i18n="policy.privacyCollect3">Thông tin đơn hàng</li>
                     </ul>
 
-                    <h3>4.2. Sử Dụng Thông Tin</h3>
-                    <p>Thông tin của bạn được sử dụng để:</p>
+                    <h3 data-i18n="policy.privacyUseTitle">4.2. Sử Dụng Thông Tin</h3>
+                    <p data-i18n="policy.privacyUseIntro">Thông tin của bạn được sử dụng để:</p>
                     <ul>
-                        <li>Xử lý và giao đơn hàng</li>
-                        <li>Liên hệ xác nhận đơn hàng</li>
-                        <li>Gửi thông tin khuyến mãi (nếu đồng ý)</li>
-                        <li>Cải thiện dịch vụ khách hàng</li>
+                        <li data-i18n="policy.privacyUse1">Xử lý và giao đơn hàng</li>
+                        <li data-i18n="policy.privacyUse2">Liên hệ xác nhận đơn hàng</li>
+                        <li data-i18n="policy.privacyUse3">Gửi thông tin khuyến mãi (nếu đồng ý)</li>
+                        <li data-i18n="policy.privacyUse4">Cải thiện dịch vụ khách hàng</li>
                     </ul>
 
-                    <h3>4.3. Bảo Vệ Thông Tin</h3>
-                    <p>Chúng tôi cam kết:</p>
+                    <h3 data-i18n="policy.privacyProtectTitle">4.3. Bảo Vệ Thông Tin</h3>
+                    <p data-i18n="policy.privacyProtectIntro">Chúng tôi cam kết:</p>
                     <ul>
-                        <li>Không chia sẻ thông tin với bên thứ ba</li>
-                        <li>Bảo mật thông tin khách hàng tuyệt đối</li>
-                        <li>Sử dụng công nghệ mã hóa an toàn</li>
+                        <li data-i18n="policy.privacyProtect1">Không chia sẻ thông tin với bên thứ ba</li>
+                        <li data-i18n="policy.privacyProtect2">Bảo mật thông tin khách hàng tuyệt đối</li>
+                        <li data-i18n="policy.privacyProtect3">Sử dụng công nghệ mã hóa an toàn</li>
                     </ul>
                 </section>
 
                 <section class="content-section">
-                    <h2>5. Điều Khoản Sử Dụng</h2>
+                    <h2 data-i18n="policy.termsTitle">5. Điều Khoản Sử Dụng</h2>
                     
-                    <h3>5.1. Quyền Sở Hữu</h3>
-                    <p>Toàn bộ nội dung, hình ảnh, logo trên website thuộc quyền sở hữu của Premium Cashew Nuts. Nghiêm cấm sao chép, sử dụng mà không có sự cho phép.</p>
+                    <h3 data-i18n="policy.termsOwnershipTitle">5.1. Quyền Sở Hữu</h3>
+                    <p data-i18n="policy.termsOwnershipText">Toàn bộ nội dung, hình ảnh, logo trên website thuộc quyền sở hữu của Premium Cashew Nuts. Nghiêm cấm sao chép, sử dụng mà không có sự cho phép.</p>
 
-                    <h3>5.2. Trách Nhiệm Người Dùng</h3>
-                    <p>Khi sử dụng website, bạn đồng ý:</p>
+                    <h3 data-i18n="policy.termsResponsibilityTitle">5.2. Trách Nhiệm Người Dùng</h3>
+                    <p data-i18n="policy.termsResponsibilityIntro">Khi sử dụng website, bạn đồng ý:</p>
                     <ul>
-                        <li>Cung cấp thông tin chính xác, trung thực</li>
-                        <li>Không sử dụng website cho mục đích bất hợp pháp</li>
-                        <li>Tuân thủ các quy định pháp luật hiện hành</li>
+                        <li data-i18n="policy.termsResponsibility1">Cung cấp thông tin chính xác, trung thực</li>
+                        <li data-i18n="policy.termsResponsibility2">Không sử dụng website cho mục đích bất hợp pháp</li>
+                        <li data-i18n="policy.termsResponsibility3">Tuân thủ các quy định pháp luật hiện hành</li>
                     </ul>
 
-                    <h3>5.3. Giới Hạn Trách Nhiệm</h3>
-                    <p>Chúng tôi không chịu trách nhiệm về:</p>
+                    <h3 data-i18n="policy.termsLimitTitle">5.3. Giới Hạn Trách Nhiệm</h3>
+                    <p data-i18n="policy.termsLimitIntro">Chúng tôi không chịu trách nhiệm về:</p>
                     <ul>
-                        <li>Thiệt hại do sử dụng sai cách sản phẩm</li>
-                        <li>Sự cố ngoài tầm kiểm soát (thiên tai, dịch bệnh...)</li>
-                        <li>Thông tin sai lệch do khách hàng cung cấp</li>
+                        <li data-i18n="policy.termsLimit1">Thiệt hại do sử dụng sai cách sản phẩm</li>
+                        <li data-i18n="policy.termsLimit2">Sự cố ngoài tầm kiểm soát (thiên tai, dịch bệnh...)</li>
+                        <li data-i18n="policy.termsLimit3">Thông tin sai lệch do khách hàng cung cấp</li>
                     </ul>
                 </section>
 
                 <section class="content-section">
-                    <h2>6. Liên Hệ & Hỗ Trợ</h2>
-                    <p>Nếu có bất kỳ thắc mắc nào về chính sách, vui lòng liên hệ:</p>
+                    <h2 data-i18n="policy.contactSupportTitle">6. Liên Hệ & Hỗ Trợ</h2>
+                    <p data-i18n="policy.contactSupportIntro">Nếu có bất kỳ thắc mắc nào về chính sách, vui lòng liên hệ:</p>
                     <div class="contact-info">
-                        <p><strong><i class="fas fa-phone-alt"></i> Hotline:</strong> 0343-365-160</p>
-                        <p><strong><i class="fas fa-envelope"></i> Email:</strong> cashewnutsvn1@gmail.com</p>
+                        <p><strong><i class="fas fa-phone-alt"></i> <span data-i18n="footer.hotline">Hotline:</span></strong> 0343-365-160</p>
+                        <p><strong><i class="fas fa-envelope"></i> <span data-i18n="footer.email">Email:</span></strong> cashewnutsvn1@gmail.com</p>
                         <p><strong><i class="fab fa-facebook-messenger"></i> Zalo:</strong> 0343-365-160</p>
-                        <p><strong><i class="fas fa-map-marker-alt"></i> Địa chỉ:</strong> Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Bình Phước</p>
-                        <p><strong><i class="fas fa-clock"></i> Giờ làm việc:</strong> 8:00 - 20:00 (Thứ 2 - Chủ Nhật)</p>
+                        <p><strong><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Địa chỉ:</span></strong> <span data-i18n="footer.addressText">Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Bình Phước</span></p>
+                        <p><strong><i class="fas fa-clock"></i> <span data-i18n="about.workingHours">Giờ làm việc:</span></strong> <span data-i18n="about.workingHoursValue">8:00 - 20:00 (Thứ 2 - Chủ Nhật)</span></p>
                     </div>
                 </section>
 
                 <div class="policy-note">
-                    <p><em>* Chính sách có thể được cập nhật mà không cần thông báo trước. Vui lòng kiểm tra thường xuyên để cập nhật thông tin mới nhất.</em></p>
-                    <p><em>* Ngày cập nhật cuối: 17/02/2025</em></p>
+                    <p><em data-i18n="policy.policyNote1">* Chính sách có thể được cập nhật mà không cần thông báo trước. Vui lòng kiểm tra thường xuyên để cập nhật thông tin mới nhất.</em></p>
+                    <p><em data-i18n="policy.policyNote2">* Ngày cập nhật cuối: 17/02/2025</em></p>
                 </div>
             </div>
         </div>
@@ -227,24 +231,24 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Về chúng tôi</h3>
-                    <p>Chuyên cung cấp hạt điều cao cấp từ vùng đất Bình Phước - Thơm ngon, bổ dưỡng.</p>
+                    <h3 data-i18n="footer.aboutTitle">Về chúng tôi</h3>
+                    <p data-i18n="footer.aboutText">Chuyên cung cấp hạt điều cao cấp từ vùng đất Bình Phước - Thơm ngon, bổ dưỡng.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Liên hệ</h3>
-                    <p><i class="fas fa-phone-alt"></i> Hotline: 0343-365-160</p>
-                    <p><i class="fas fa-envelope"></i> Email: cashewnutsvn1@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Bình Phước</p>
+                    <h3 data-i18n="footer.contactTitle">Liên hệ</h3>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="footer.hotline">Hotline:</span> 0343-365-160</p>
+                    <p><i class="fas fa-envelope"></i> <span data-i18n="footer.email">Email:</span> cashewnutsvn1@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Địa chỉ:</span> <span data-i18n="footer.addressText">Ấp 1B, Xã Phước Thái, Huyện Long Thành, Tỉnh Bình Phước</span></p>
                 </div>
                 <div class="footer-section">
-                    <h3>Chính sách</h3>
-                    <p><a href="policy.html">Chính sách đổi trả</a></p>
-                    <p><a href="policy.html">Chính sách bảo mật</a></p>
-                    <p><a href="policy.html">Điều khoản sử dụng</a></p>
+                    <h3 data-i18n="footer.policyTitle">Chính sách</h3>
+                    <p><a href="policy.html" data-i18n="footer.returnPolicy">Chính sách đổi trả</a></p>
+                    <p><a href="policy.html" data-i18n="footer.privacyPolicy">Chính sách bảo mật</a></p>
+                    <p><a href="policy.html" data-i18n="footer.termsOfUse">Điều khoản sử dụng</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Premium Cashew Nuts. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 Premium Cashew Nuts. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -253,15 +257,26 @@
     <div class="floating-contact">
         <a href="https://zalo.me/0343365160" target="_blank" class="contact-btn zalo-btn" title="Chat Zalo">
             <i class="fab fa-facebook-messenger"></i>
-            <span>Zalo</span>
+            <span data-i18n="floatingContact.zalo">Zalo</span>
         </a>
         <a href="tel:0343365160" class="contact-btn phone-btn" title="Gọi điện">
             <i class="fas fa-phone-alt"></i>
-            <span>Gọi ngay</span>
+            <span data-i18n="floatingContact.phone">Gọi ngay</span>
         </a>
     </div>
 
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/cart.js"></script>
+    
+    <!-- Discord Analytics -->
+    <script src="js/analytics-discord.js"></script>
+    <script>
+        const WEBHOOK_URL = 'YOUR_DISCORD_WEBHOOK_URL';
+        if (WEBHOOK_URL && WEBHOOK_URL !== 'YOUR_DISCORD_WEBHOOK_URL') {
+            const discordAnalytics = new DiscordAnalytics(WEBHOOK_URL);
+        }
+    </script>
 </body>
 </html>
